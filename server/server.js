@@ -1,13 +1,14 @@
 import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
+import './config/dotenv.js'
+// import dotenv from 'dotenv'
 
-// import the router from your routes file
+// // import the router from your routes file
 
-// use dotenv package to load the private config values into process.env
-// process is global object provided by Node.js and gives info of the currently running Node.js program
-dotenv.config()
+// // use dotenv package to load the private config values into process.env
+// // process is global object provided by Node.js and gives info of the currently running Node.js program
+// dotenv.config()
 
 const PORT = process.env.PORT || 3000
 
