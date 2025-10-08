@@ -2,17 +2,23 @@ import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import './config/dotenv.js'
-// import dotenv from 'dotenv'
 
-// // import the router from your routes file
+import dotenv from 'dotenv'
 
-// // use dotenv package to load the private config values into process.env
-// // process is global object provided by Node.js and gives info of the currently running Node.js program
-// dotenv.config()
+// import the router from your routes file
+import locationsRouter from './routes/locationsRouter.js'
+import eventsRouter from './routes/eventsRouter.js'
+import cors from 'cors'
+
+// use dotenv package to load the private config values into process.env
+// process is global object provided by Node.js and gives info of the currently running Node.js program
+dotenv.config()
 
 const PORT = process.env.PORT || 3000
 
 const app = express()
+
+app.use(cors())
 
 app.use(express.json())
 
@@ -25,7 +31,12 @@ else if (process.env.NODE_ENV === 'production') {
 }
 
 // specify the api path for the server to use
+app.use('/locations', locationsRouter)
+app.use('/events', eventsRouter)
 
+app.get('/', (req, res) => {
+  res.status(200).send('<h1 style="text-align: center; margin-top: 50px;">UnityGrid API</h1>')
+})
 
 if (process.env.NODE_ENV === 'production') {
     app.get('/*', (_, res) =>

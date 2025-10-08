@@ -5,9 +5,11 @@ import '../css/Locations.css'
 
 const Locations = () => {
 
+    // state variables for an array of locations and an object of venue name key value pairs
     const [locations, setLocations] = useState([])
     const [venueNames, setVenueNames] = useState({venue1: '', venue2: '', venue3: '', venue4: ''})
 
+    // fetch data from backend using service function and update component state with the new data
     useEffect(() => {
         (async () => {
             try {
