@@ -22,7 +22,8 @@ const createLocationsTable = async() => {
         CREATE TABLE IF NOT EXISTS locations (
             location_id SERIAL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
-            address VARCHAR(255) NOT NULL
+            address VARCHAR(255) NOT NULL,
+            image TEXT NOT NULL
         )
     `
 
@@ -39,12 +40,13 @@ const createLocationsTable = async() => {
 const seedLocationsTable = async() => {
     locationData.forEach((location) => {
         const insertQuery = {
-            text: 'INSERT INTO locations (name, address) VALUES ($1, $2)'
+            text: 'INSERT INTO locations (name, address, image) VALUES ($1, $2, $3)'
         }
 
         const values = [
             location.name,
-            location.address
+            location.address,
+            location.image
         ]
 
         // use the pool connection to make a query to the database to insert each location 
@@ -67,6 +69,7 @@ const createEventsTable = async() => {
             event_id SERIAL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             date TIMESTAMP NOT NULL,
+            image TEXT NOT NULL,
             location_id INT,
             CONSTRAINT fk_location FOREIGN KEY (location_id)
             REFERENCES locations(location_id)
@@ -85,12 +88,13 @@ const createEventsTable = async() => {
 const seedEventsTable = async() => {
     eventData.forEach((event) => {
         const insertQuery = {
-            text: 'INSERT INTO events (name, date, location_id) VALUES ($1, $2, $3)'
+            text: 'INSERT INTO events (name, date, image, location_id) VALUES ($1, $2, $3, $4)'
         }
 
         const values = [
             event.name,
             event.date,
+            event.image,
             event.location_id
         ]
 

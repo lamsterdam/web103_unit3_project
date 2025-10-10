@@ -11,6 +11,25 @@ const getLocations = async (req, res) => {
     }
 }
 
+// get the location by id
+const getLocationById = async (req, res) => {
+    try {
+        const selectQuery = `
+            SELECT * FROM locations WHERE location_id=$1
+        `
+        // extract the location
+        const locationId = req.params.id
+
+        // query the database to obtain the location with the matching locationId 
+        const results = await pool.query(selectQuery, [locationId])
+        res.status(200).json(results.rows[0])
+
+    } catch (err) {
+        res.status(409).json( { error: error.message} )
+    }
+}
+
 export default {
-    getLocations
+    getLocations,
+    getLocationById
 }

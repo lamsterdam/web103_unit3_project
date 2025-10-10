@@ -10,6 +10,16 @@ const LocationsApi = {
             console.log('Error with fetching the locations: ', err)
         }
         
+    },
+
+    getLocationById: async (locationId) => {
+        try {
+            const response = await fetch(`http://localhost:3000/locations/${locationId}`)
+            const data = await response.json()
+            return data
+        } catch (err) {
+            console.log('Error with fetching the location by ID: ', err)
+        }
     }
 }
 
