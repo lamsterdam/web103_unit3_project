@@ -4,7 +4,7 @@ Submitted by: **Leigh-Riane Amsterdam**
 
 About this web app: **This is an app that allows users to select various locations and see the artists that will be perfroming at that location. It displays the time of the performance, the artist name and their image. It also illustrates the name of the venu, the image of the venu and its address. Clicking on a location will naviagte to the detail page of that location.**
 
-Time spent: **X** hours
+Time spent: **20** hours
 
 ## Required Features
 
@@ -36,7 +36,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
-
+![Video Walkthrough](https://github.com/lamsterdam/web103_unit3_project/blob/main/demo_project_103_virtual_community.gif)
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
@@ -51,6 +51,8 @@ GIF created with ... GIF tool here
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
+
+This was a bit challenging. It took me quite a bit of time to get my tables up for the events and locations and also ensuring that they were connected properly. I used a foreign key which I think worked well. Some other challenges were the events and locations APIs and ensuring that I had the right functions, controllers and routes. 
 
 ## License
 
